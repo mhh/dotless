@@ -178,7 +178,7 @@ namespace dotless.Compiler
                     {
                         configuration.MinifyOutput = true;
                     }
-                    if (arg == "-l" || arg == "--limit")
+                    else if (arg == "-l" || arg == "--limit")
                     {
                         configuration.RuleLimit = 4095;
                     }
