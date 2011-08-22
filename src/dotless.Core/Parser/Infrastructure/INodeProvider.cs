@@ -7,6 +7,9 @@ namespace dotless.Core.Parser.Infrastructure
 
     public interface INodeProvider
     {
+        //statistics
+        int TotalRules { get; }
+
         Element Element(Combinator combinator, string value, int index);
         Combinator Combinator(string value, int index);
         Selector Selector(NodeList<Element> elements, int index);

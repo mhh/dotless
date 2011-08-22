@@ -80,8 +80,12 @@ namespace dotless.Core
             if (configuration.CacheEnabled)
                 pandora.Service<ILessEngine>().Implementor<CacheDecorator>().Lifestyle.Transient();
 
-            pandora.Service<ILessEngine>().Implementor<LessEngine>().Parameters("compress").Set("minify-output").Lifestyle.Transient();
+            pandora.Service<ILessEngine>().Implementor<LessEngine>()
+                .Parameters("compress").Set("minify-output").Lifestyle.Transient()
+                .Parameters("ruleLimit").Set("rule-limit").Lifestyle.Transient();
+
             pandora.Service<bool>("minify-output").Instance(configuration.MinifyOutput);
+            pandora.Service<int>("rule-limit").Instance(configuration.RuleLimit);
 
             pandora.Service<IFileReader>().Implementor(configuration.LessSource);
         }

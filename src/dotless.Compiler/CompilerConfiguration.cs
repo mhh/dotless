@@ -10,6 +10,7 @@ namespace dotless.Compiler
             LessSource = config.LessSource;
             LogLevel = config.LogLevel;
             MinifyOutput = config.MinifyOutput;
+            RuleLimit = config.RuleLimit;
             Optimization = config.Optimization;
 
             CacheEnabled = false;

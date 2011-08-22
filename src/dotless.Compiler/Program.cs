@@ -76,6 +76,7 @@ namespace dotless.Compiler
                     System.Threading.Thread.Sleep(200);
                 }
             }
+
             return returnCode;
         }
         private static CompilationDelegate CreationImpl(ILessEngine engine, string inputFilePath, string outputDirectoryPath)
@@ -158,6 +159,7 @@ namespace dotless.Compiler
             Console.WriteLine("\tSwitches:");
             Console.WriteLine("\t\t-m --minify - Output CSS will be compressed");
             Console.WriteLine("\t\t-w --watch - Watches .less file for changes");
+            Console.WriteLine("\t\t-l --limit - Raise error if output exceeds 4095 CSS selectors (IE compatibility)");
             Console.WriteLine("\t\t-h --help - Displays this dialog");
             Console.WriteLine("\tinputfile: .less file dotless should compile to CSS");
             Console.WriteLine("\toutputfile: (optional) desired filename for .css output");
@@ -175,6 +177,10 @@ namespace dotless.Compiler
                     if (arg == "-m" || arg == "--minify")
                     {
                         configuration.MinifyOutput = true;
+                    }
+                    if (arg == "-l" || arg == "--limit")
+                    {
+                        configuration.RuleLimit = 4095;
                     }
                     else if (arg == "-h" || arg == "--help")
                     {

@@ -11,6 +11,7 @@ namespace dotless.Core.configuration
             var dotlessConfiguration = DotlessConfiguration.DefaultWeb;
 
             dotlessConfiguration.MinifyOutput = GetBoolValue(section, "minifyCss") ?? dotlessConfiguration.MinifyOutput;
+            dotlessConfiguration.RuleLimit = GetIntValue(section, "ruleLimit") ?? dotlessConfiguration.RuleLimit;
             dotlessConfiguration.CacheEnabled = GetBoolValue(section, "cache") ?? dotlessConfiguration.CacheEnabled;
             dotlessConfiguration.Optimization = GetIntValue(section, "optimization") ?? dotlessConfiguration.Optimization;
 

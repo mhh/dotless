@@ -16,6 +16,7 @@ namespace dotless.Core.configuration
         {
             LessSource = typeof (FileReader);
             MinifyOutput = false;
+            RuleLimit = 0;
             CacheEnabled = true;
             Web = false;
             Logger = null;
@@ -27,6 +28,7 @@ namespace dotless.Core.configuration
         {
             LessSource = config.LessSource;
             MinifyOutput = config.MinifyOutput;
+            RuleLimit = config.RuleLimit;
             CacheEnabled = config.CacheEnabled;
             Web = config.Web;
             Logger = null;
@@ -35,6 +37,7 @@ namespace dotless.Core.configuration
         }
 
         public bool MinifyOutput { get; set; }
+        public int RuleLimit { get; set; }
         public bool CacheEnabled { get; set; }
         public Type LessSource { get; set; }
         public bool Web { get; set; }

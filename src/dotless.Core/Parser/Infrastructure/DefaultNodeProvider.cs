@@ -7,6 +7,8 @@ namespace dotless.Core.Parser.Infrastructure
 
     public class DefaultNodeProvider : INodeProvider
     {
+        public int TotalRules { get; private set; }
+
         public Element Element(Combinator combinator, string value, int index)
         {
             return new Element(combinator, value) { Index = index };
@@ -24,6 +26,8 @@ namespace dotless.Core.Parser.Infrastructure
 
         public Rule Rule(string name, Node value, int index)
         {
+            TotalRules++;
+
             return new Rule(name, value) { Index = index };
         }
 
